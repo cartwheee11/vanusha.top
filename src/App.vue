@@ -80,6 +80,13 @@ export default defineComponent({
   src: url(./assets/fonts/beb.ttf);
 }
 
+body {
+  padding: 0 30px;
+  @media screen and (max-width: 800px) {
+    padding: 0 10px;
+  }
+}
+
 @font-face {
   font-family: 'mont-sb';
   src: url(./assets/fonts/mont-sb.ttf);
@@ -91,6 +98,10 @@ export default defineComponent({
   font-family: mont-sb;
   font-size: 18px;
   margin-bottom: 0;
+
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+  }
 }
 
 @mixin themeing($c-back, $c-text, $c-block){
@@ -119,12 +130,20 @@ h1 {
   font-family: beb;
   font-weight: 100;
   font-size: 50px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 40px;
+  }
 }
 
 h2 {
   font-family: beb;
   font-weight: 100;
   font-size: 35px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 30px;
+  }
 }
 
 p {
@@ -142,6 +161,9 @@ nav {
   display: flex;
   align-items: center;
 
+  @media screen and (max-width: 600px) {
+    padding-top: 5px;
+  }
 }
 
 .switch-theme-button {

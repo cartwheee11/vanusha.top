@@ -41,6 +41,10 @@ export default defineComponent({
   overflow: hidden;
   box-sizing: content-box;
   margin-top: 30px;
+
+  @media screen and (max-width: 800px) {
+    margin-top: 15px;
+  }
 }
 
 a {
@@ -70,5 +74,9 @@ a {
 .title {
   width: 50%;
   display: inline-block;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    padding-bottom: 10px;
+  }
 }
 </style>

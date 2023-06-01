@@ -1,7 +1,8 @@
 <template>
   <div>
     <a class="wrapper" :href="href">
-      <div class="image-wrapper" :style="bgColor ? 'background-color: ' + bgColor : ''">
+      <div ref="imageWrapper"
+        class="image-wrapper" :style="bgColor ? 'background-color: ' + bgColor : ''">
         <p class="title" :style="'color:' + titleColor">{{ title }}</p>
 
         <div class="slot-container">
@@ -27,6 +28,12 @@ export default defineComponent({
       required: false,
     },
 
+    adaptHeight: {
+      type: Boolean as PropType<boolean>,
+      requried: false,
+      default: true,
+    },
+
     href: {
       type: String as PropType<string | undefined>,
       required: false,
@@ -50,6 +57,14 @@ export default defineComponent({
       default: 'white',
     },
   },
+
+  mounted() {
+    if (this.adaptHeight) {
+      const { width } = window.getComputedStyle((this.$refs as any).imageWrapper);
+      console.log(width);
+      (this.$refs as any).imageWrapper.style.height = width;
+    }
+  },
 });
 </script>
 
@@ -70,6 +85,11 @@ export default defineComponent({
     flex-direction: column;
     justify-content: center;
     padding: 20px;
+
+    @media screen and (max-width: 600px) {
+      height: 140px;
+      border-radius: 40px;
+    }
   }
 
   body .image-wrapper {
@@ -85,6 +105,12 @@ export default defineComponent({
     font-size: 60px;
     vertical-align: middle;
     display: inline-block;
+
+    @media screen and (max-width: 600px) {
+      font-size: 25px;
+      word-wrap: wrap;
+      word-break: break-all;
+    }
   }
 
   // .wrapper * {
@@ -92,7 +118,7 @@ export default defineComponent({
   // }
 
   .subtitle {
-    margin-top: 5px;
+    margin-top: 4px;
   }
 
   a {

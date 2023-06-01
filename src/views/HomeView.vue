@@ -22,19 +22,19 @@
 
       <div class="socials-grid">
 
-        <social-link-item href="https://www.instagram.com/ivan.fusion/" subtitle="instagram">
+        <social-link-item class="instagram" href="https://www.instagram.com/ivan.fusion/" subtitle="instagram">
           <img srcset="../assets/images/inst.png 3x" alt="" >
         </social-link-item>
 
-        <social-link-item href="https://pinterest.com/vanuwa69/" class="pinterest"  subtitle="pinterest" bgColor="#CB1D2E">
+        <social-link-item :adaptHeight="isLessThan600 ? true : false"  href="https://pinterest.com/vanuwa69/" class="pinterest"  subtitle="pinterest" bgColor="#CB1D2E">
           <img srcset="../assets/images/pinterest.png 3x" alt="" >
         </social-link-item>
 
-        <social-link-item class="discord" title="vane4karave#0238"
+        <social-link-item :adaptHeight="false" class="discord" title="vane4karave#0238"
           subtitle="discord" bgColor="#593BE4">
         </social-link-item>
 
-        <social-link-item href="https://vk.com/vane4karave" subtitle="vkontakte" bgColor="#0079FF">
+        <social-link-item class="vk" href="https://vk.com/vane4karave" subtitle="vkontakte" bgColor="#0079FF">
           <img srcset="../assets/images/vk.png 3x" alt="">
         </social-link-item>
 
@@ -46,7 +46,7 @@
           <img srcset="../assets/images/tt.png 3x" alt="" >
         </social-link-item>
 
-        <social-link-item class="pinterest"
+        <social-link-item class="riot" :adaptHeight="false"
           title="vane4karave#0000"
           subtitle="riot id" bgColor="#E45D3B">
         </social-link-item>
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <div class="container section pet-projects-section">
+    <div class="container section projects-section">
       <h2>пэт-проекты</h2>
       <projects-item />
     </div>
@@ -89,6 +89,12 @@ export default defineComponent({
   components: {
     SocialLinkItem,
     ProjectsItem,
+  },
+
+  computed: {
+    isLessThan600() {
+      return window.innerWidth <= 800;
+    },
   },
 });
 </script>
@@ -149,6 +155,10 @@ export default defineComponent({
     filter: invert(100%);
     mix-blend-mode: exclusion;
     transform-origin: bottom;
+
+    @media screen and (max-width: 800px) {
+      height: 80px;
+    }
   }
 
   .left-wing {
@@ -171,10 +181,20 @@ export default defineComponent({
     border-spacing: 2px;
     background-color: black;
     border-radius: 100%;
+
+    @media screen and (max-width: 800px) {
+      height: 100px;
+    }
   }
 
   .section {
     margin-top: 100px;
+  }
+
+  .projects-section {
+    @media screen and (max-width: 800px) {
+      margin-top: 70px;
+    }
   }
 
   h1 {
@@ -191,11 +211,26 @@ export default defineComponent({
     gap: 30px;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 30px;
+
+    @media screen and (max-width: 800px) {
+      font-size: 30px;
+      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 15px;
+    }
+
+    @media screen and (max-width: 600px) {
+      gap: 10px;
+    }
   }
 
   .socials-grid img{
     display: inline-block;
     margin-top: -10px;
+
+    @media screen and (max-width: 800px) {
+      width: 40%;
+    }
   }
 
   .socials-section {
@@ -211,11 +246,43 @@ export default defineComponent({
     transform: translateY(-10px);
   }
 
+  .instagram {
+    @media screen and (max-width: 800px) {
+      // grid-column: span 2;
+    }
+  }
+
+  .riot {
+    grid-column: span 2;
+
+    @media screen and (max-width: 800px) {
+      grid-column: span 2;
+    }
+  }
+
+  .vk {
+    @media screen and (max-width: 800px) {
+      grid-column: span 2;
+    }
+  }
+
   .pinterest {
     grid-column: span 2;
+    @media screen and (max-width: 800px) {
+      grid-column: span 1;
+
+      img {
+        width: 70%;
+      }
+    }
+
   }
 
   .discord {
     grid-column: span 3;
+
+    @media screen and (max-width: 800px) {
+      grid-column: span 2;
+    }
   }
 </style>
