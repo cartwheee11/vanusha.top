@@ -58,12 +58,23 @@ export default defineComponent({
     },
   },
 
-  mounted() {
-    if (this.adaptHeight) {
+  methods: {
+    onResize() {
       const { width } = window.getComputedStyle((this.$refs as any).imageWrapper);
       console.log(width);
       (this.$refs as any).imageWrapper.style.height = width;
+    },
+  },
+
+  mounted() {
+    if (this.adaptHeight) {
+      this.onResize();
+      window.addEventListener('resize', this.onResize);
     }
+  },
+
+  unmounted() {
+    window.removeEventListener('resize', this.onResize);
   },
 });
 </script>

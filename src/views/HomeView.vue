@@ -1,4 +1,5 @@
 <template>
+  <snake-item class="snake" />
   <div class="home">
     <div class="container avatar-section section">
       <img class="left-wing wing"
@@ -83,6 +84,7 @@
 import { defineComponent } from 'vue';
 import SocialLinkItem from '../components/SocialLinkItem.vue';
 import ProjectsItem from '../components/ProjectsItem.vue';
+// import SnakeItem from '../components/SnakeItem.vue';
 
 export default defineComponent({
   name: 'HomeView',
@@ -100,6 +102,13 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+  // .snake {
+  //   position: absolute;
+  //   top: 0;
+  //   z-index: -10;
+  //   left: 0;
+  // }
+
   @keyframes fade-up{
     from {
       transform: translateY(20px);
