@@ -60,17 +60,18 @@ export default defineComponent({
 
   methods: {
     onResize() {
-      const { width } = window.getComputedStyle((this.$refs as any).imageWrapper);
-      console.log(width);
-      (this.$refs as any).imageWrapper.style.height = width;
+      if (this.adaptHeight) {
+        const { width } = window.getComputedStyle((this.$refs as any).imageWrapper);
+        (this.$refs as any).imageWrapper.style.height = width;
+      } else {
+        (this.$refs as any).imageWrapper.style.height = '238px';
+      }
     },
   },
 
   mounted() {
-    if (this.adaptHeight) {
-      this.onResize();
-      window.addEventListener('resize', this.onResize);
-    }
+    this.onResize();
+    window.addEventListener('resize', this.onResize.bind(this));
   },
 
   unmounted() {

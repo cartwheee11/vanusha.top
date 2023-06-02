@@ -1,5 +1,5 @@
 <template>
-  <snake-item class="snake" />
+  <!-- <snake-item class="snake" /> -->
   <div class="home">
     <div class="container avatar-section section">
       <img class="left-wing wing"
@@ -93,10 +93,24 @@ export default defineComponent({
     ProjectsItem,
   },
 
-  computed: {
-    isLessThan600() {
-      return window.innerWidth <= 800;
+  data() {
+    return {
+      isLessThan600: window.innerWidth <= 800,
+    };
+  },
+
+  methods: {
+    onResize() {
+      this.isLessThan600 = window.innerWidth <= 800;
     },
+  },
+
+  mounted() {
+    window.addEventListener('resize', this.onResize);
+  },
+
+  unmounted() {
+    window.removeEventListener('resize', this.onResize);
   },
 });
 </script>
