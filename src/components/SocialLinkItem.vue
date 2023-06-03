@@ -60,6 +60,7 @@ export default defineComponent({
 
   methods: {
     onResize() {
+      // console.log('сработало');
       if (this.adaptHeight) {
         const { width } = window.getComputedStyle((this.$refs as any).imageWrapper);
         (this.$refs as any).imageWrapper.style.height = width;
@@ -71,7 +72,10 @@ export default defineComponent({
 
   mounted() {
     this.onResize();
-    window.addEventListener('resize', this.onResize.bind(this));
+    this.$nextTick(() => {
+      this.onResize();
+      window.addEventListener('resize', this.onResize.bind(this));
+    });
   },
 
   unmounted() {
