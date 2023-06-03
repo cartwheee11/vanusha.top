@@ -23,11 +23,11 @@
 
       <div class="socials-grid">
 
-        <social-link-item class="instagram" href="https://www.instagram.com/ivan.fusion/" subtitle="instagram">
+        <social-link-item :adaptHeight="mq.current == 'sm' ? true : false" class="instagram" href="https://www.instagram.com/ivan.fusion/" subtitle="instagram">
           <img srcset="../assets/images/inst.png 3x" alt="" >
         </social-link-item>
 
-        <social-link-item :adaptHeight="isLessThan600 ? true : false"  href="https://pinterest.com/vanuwa69/" class="pinterest"  subtitle="pinterest" bgColor="#CB1D2E">
+        <social-link-item :adaptHeight="mq.current == 'sm' ? true : false"  href="https://pinterest.com/vanuwa69/" class="pinterest"  subtitle="pinterest" bgColor="#CB1D2E">
           <img srcset="../assets/images/pinterest.png 3x" alt="" >
         </social-link-item>
 
@@ -87,30 +87,11 @@ import ProjectsItem from '../components/ProjectsItem.vue';
 // import SnakeItem from '../components/SnakeItem.vue';
 
 export default defineComponent({
+  inject: ['mq'],
   name: 'HomeView',
   components: {
     SocialLinkItem,
     ProjectsItem,
-  },
-
-  data() {
-    return {
-      isLessThan600: window.innerWidth <= 800,
-    };
-  },
-
-  methods: {
-    onResize() {
-      this.isLessThan600 = window.innerWidth <= 800;
-    },
-  },
-
-  mounted() {
-    window.addEventListener('resize', this.onResize);
-  },
-
-  unmounted() {
-    window.removeEventListener('resize', this.onResize);
   },
 });
 </script>
