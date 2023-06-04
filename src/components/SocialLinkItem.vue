@@ -5,7 +5,7 @@
         class="image-wrapper" :style="bgColor ? 'background-color: ' + bgColor : ''">
         <p class="title" :style="'color:' + titleColor">{{ title }}</p>
 
-        <div class="slot-container" @vnodeUpdated="onVnodeUpdated">
+        <div class="slot-container" @vnodeUpdated="onVnodeUpdated" ref="slot">
           <slot />
         </div>
       </div>
@@ -64,7 +64,6 @@ export default defineComponent({
     },
 
     onResize() {
-      // console.log('сработало');
       if (this.adaptHeight) {
         const { width } = window.getComputedStyle((this.$refs as any).imageWrapper);
         console.log(width);
@@ -83,6 +82,11 @@ export default defineComponent({
     });
 
     console.log(this.subtitle);
+    const img = (this.$refs as any).slot.querySelector('img');
+    if (img) {
+      console.log(img);
+      img.onload = this.onResize;
+    }
   },
 
   unmounted() {
