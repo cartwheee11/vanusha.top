@@ -1,6 +1,6 @@
 <template>
   <!-- <snake-item class="snake" /> -->
-  <div class="home" :class="{ 'd-none': !avatarLoaded }">
+  <div class="home" v-if="avatarLoaded">
     <div class="container avatar-section section">
       <img class="left-wing wing"
         height="180"
@@ -101,7 +101,11 @@ export default defineComponent({
   },
 
   mounted() {
-    (this.$refs as any).avatar.onload = () => {
+    const avatar = new Image();
+    console.log(avatar.onload);
+    // eslint-disable-next-line global-require
+    avatar.src = require('../assets/images/avatar.png');
+    avatar.onload = () => {
       this.avatarLoaded = true;
     };
   },
