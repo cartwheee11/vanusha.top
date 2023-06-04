@@ -1,7 +1,7 @@
 <template>
   <!-- <snake-item class="snake" /> -->
-  <div class="home">
-    <div class="container avatar-section section" :class="{ 'd-none': !avatarLoaded }">
+  <div class="home" :class="{ 'd-none': !avatarLoaded }">
+    <div class="container avatar-section section">
       <img class="left-wing wing"
         height="180"
         src="../assets/images/wreath.png" alt=""
