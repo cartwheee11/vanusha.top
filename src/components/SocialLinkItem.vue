@@ -5,7 +5,7 @@
         class="image-wrapper" :style="bgColor ? 'background-color: ' + bgColor : ''">
         <p class="title" :style="'color:' + titleColor">{{ title }}</p>
 
-        <div class="slot-container">
+        <div class="slot-container" @vnodeUpdated="onVnodeUpdated">
           <slot />
         </div>
       </div>
@@ -59,10 +59,15 @@ export default defineComponent({
   },
 
   methods: {
+    vnodeUpdated() {
+      this.onResize();
+    },
+
     onResize() {
       // console.log('сработало');
       if (this.adaptHeight) {
         const { width } = window.getComputedStyle((this.$refs as any).imageWrapper);
+        console.log(width);
         (this.$refs as any).imageWrapper.style.height = width;
       } else {
         (this.$refs as any).imageWrapper.style.height = '238px';
@@ -76,6 +81,8 @@ export default defineComponent({
       this.onResize();
       window.addEventListener('resize', this.onResize.bind(this));
     });
+
+    console.log(this.subtitle);
   },
 
   unmounted() {
@@ -103,7 +110,7 @@ export default defineComponent({
     padding: 20px;
 
     @media screen and (max-width: 600px) {
-      height: 140px;
+      // height: 140px;
       border-radius: 40px;
     }
   }
