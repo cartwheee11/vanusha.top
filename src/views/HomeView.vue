@@ -1,13 +1,13 @@
 <template>
   <!-- <snake-item class="snake" /> -->
   <div class="home">
-    <div class="container avatar-section section">
+    <div class="container avatar-section section" :class="{ 'd-none': !avatarLoaded }">
       <img class="left-wing wing"
         height="180"
         src="../assets/images/wreath.png" alt=""
       >
 
-      <img class="avatar" height="180" src="../assets/images/avatar.png" alt="">
+      <img ref="avatar" class="avatar" height="180" src="../assets/images/avatar.png" alt="">
 
       <img class="right-wing wing"
         height="180"
@@ -93,6 +93,18 @@ export default defineComponent({
     SocialLinkItem,
     ProjectsItem,
   },
+
+  data() {
+    return {
+      avatarLoaded: false,
+    };
+  },
+
+  mounted() {
+    (this.$refs as any).avatar.onload = () => {
+      this.avatarLoaded = true;
+    };
+  },
 });
 </script>
 
@@ -103,6 +115,10 @@ export default defineComponent({
   //   z-index: -10;
   //   left: 0;
   // }
+
+  .d-none {
+    display: none;
+  }
 
   @keyframes fade-up{
     from {
