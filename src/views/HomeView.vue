@@ -59,7 +59,7 @@
     </div>
 
     <div class="container section projects-section">
-      <h2>пэт-проекты</h2>
+      <h2>другие ссылки</h2>
       <projects-item />
     </div>
 
