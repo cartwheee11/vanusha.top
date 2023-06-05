@@ -79,6 +79,7 @@ export default defineComponent({
     this.$nextTick(() => {
       this.onResize();
       window.addEventListener('resize', this.onResize.bind(this));
+      window.addEventListener('scroll', this.onResize.bind(this));
     });
 
     console.log(this.subtitle);
@@ -87,10 +88,13 @@ export default defineComponent({
       console.log(img);
       img.onload = this.onResize;
     }
+
+    setTimeout(this.onResize, 1000);
   },
 
   unmounted() {
     window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('scroll', this.onResize);
   },
 });
 </script>

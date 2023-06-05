@@ -309,4 +309,15 @@ export default defineComponent({
       grid-column: span 2;
     }
   }
+
+  footer {
+    margin-top: 60px !important;
+
+    p {
+      @media screen and (max-width: 800px) {
+        font-size: 16px !important;
+      }
+    }
+  }
+
 </style>

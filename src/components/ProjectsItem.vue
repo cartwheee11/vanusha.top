@@ -1,13 +1,18 @@
 <template>
   <div>
     <div class="wrapper">
+      <a href="#" class="item">
+        <span class="title">
+          Перспективный игровой проект "Feed Alena"
+          <span class="soon">скоро!</span>
+        </span>
+        <span class="link">В разработке</span>
+
+      </a>
+
       <a href="https://cats.vanusha.top" class="item">
         <span class="title">Коллекция котиков</span><span class="link">https://cats.vanusha.top</span>
       </a>
-
-      <!-- <a href="https://cats.vanusha.top" class="item">
-        <span class="title">AAA проект "Feed Alena"</span><span class="link">https://cats.vanusha.top</span>
-      </a> -->
 
       <a href="https://fastcode.vanusha.top" class="item">
         <span class="title">JS Fastcode</span><span class="link">https://fastcode.vanusha.top</span>
@@ -44,6 +49,7 @@ export default defineComponent({
 
   @media screen and (max-width: 800px) {
     margin-top: 15px;
+    border-radius: 20px;
   }
 }
 
@@ -65,6 +71,24 @@ a {
   &:last-child {
     border: none;
   }
+
+  span {
+    vertical-align: middle;
+    line-height: 1.5em;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 20px;
+  }
+}
+
+.soon {
+  background-color: rgba(134,134,134,0.20);
+  padding: 1px 7px;
+  border-radius: 100px;
+  color: #777;
+  font-weight: 500;
+  line-height: 2em;
 }
 
 .link {
@@ -76,7 +100,7 @@ a {
   display: inline-block;
   @media screen and (max-width: 800px) {
     width: 100%;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
   }
 }
 </style>
