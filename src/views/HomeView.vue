@@ -52,7 +52,12 @@
           subtitle="riot id" bgColor="#E45D3B">
         </social-link-item>
 
-        <social-link-item href="https://www.youtube.com/channel/UCy5njV7OkIGXYzK4qWGTBtQ" subtitle="youtube" bgColor="#FFBEA8">
+        <social-link-item
+          href="https://www.youtube.com/channel/UCy5njV7OkIGXYzK4qWGTBtQ"
+          subtitle="youtube"
+          :adaptHeight="mq.current == 'sm' ? true : false"
+          bgColor="#FFBEA8"
+        >
           <img srcset="../assets/images/yt.png 3x" alt="">
         </social-link-item>
       </div>

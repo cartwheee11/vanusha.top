@@ -2,7 +2,12 @@
   <div>
     <a class="wrapper" :href="href">
       <div ref="imageWrapper"
-        class="image-wrapper" :style="bgColor ? 'background-color: ' + bgColor : ''">
+        class="image-wrapper"
+        :class="{
+          'squared': adaptHeight,
+        }"
+        :style="bgColor ? 'background-color: ' + bgColor : ''"
+      >
         <p class="title" :style="'color:' + titleColor">{{ title }}</p>
 
         <div class="slot-container" @vnodeUpdated="onVnodeUpdated" ref="slot">
@@ -56,45 +61,6 @@ export default defineComponent({
       required: false,
       default: 'white',
     },
-  },
-
-  methods: {
-    vnodeUpdated() {
-      this.onResize();
-    },
-
-    onResize() {
-      if (this.adaptHeight) {
-        const { width } = window.getComputedStyle((this.$refs as any).imageWrapper);
-        console.log(width);
-        (this.$refs as any).imageWrapper.style.height = width;
-      } else {
-        (this.$refs as any).imageWrapper.style.height = '238px';
-      }
-    },
-  },
-
-  mounted() {
-    this.onResize();
-    this.$nextTick(() => {
-      this.onResize();
-      window.addEventListener('resize', this.onResize.bind(this));
-      window.addEventListener('scroll', this.onResize.bind(this));
-    });
-
-    console.log(this.subtitle);
-    const img = (this.$refs as any).slot.querySelector('img');
-    if (img) {
-      console.log(img);
-      img.onload = this.onResize;
-    }
-
-    setTimeout(this.onResize, 1000);
-  },
-
-  unmounted() {
-    window.removeEventListener('resize', this.onResize);
-    window.removeEventListener('scroll', this.onResize);
   },
 });
 </script>
@@ -154,5 +120,11 @@ export default defineComponent({
 
   a {
     text-decoration: none;
+  }
+
+  .squared {
+    aspect-ratio: 1;
+    width: 100%;
+    height: auto;
   }
 </style>
