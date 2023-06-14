@@ -14,17 +14,17 @@
         <span class="title">Коллекция котиков</span><span class="link">https://cats.vanusha.top</span>
       </a>
 
-      <a href="https://fastcode.vanusha.top" class="item">
+      <!-- <a href="https://fastcode.vanusha.top" class="item">
         <span class="title">JS Fastcode</span><span class="link">https://fastcode.vanusha.top</span>
-      </a>
+      </a> -->
 
       <a href="https://cq.vanusha.top" class="item">
         <span class="title">Country Quiz</span><span class="link">https://cq.vanusha.top</span>
       </a>
 
-      <a href="https://todo.vanusha.top" class="item">
+      <!-- <a href="https://todo.vanusha.top" class="item">
         <span class="title">Todo Manager</span><span class="link">https://todo.vanusha.top</span>
-      </a>
+      </a> -->
     </div>
   </div>
 </template>
