@@ -10,10 +10,10 @@
       <div ref="menuContainer" class="menu-container" @blur="menuShowed = false"
        @click="menuShowed = menuShowed ? false : true">
         <div class="menu" :class="{'menu-showed': menuShowed}">
-          <a href="https://cats.vanusha.top">Коллекция котиков</a>
-          <a href="https://fastcode.vanusha.top">JS Fastcode</a>
-          <a href="https://cq.vanusha.top">Country Quiz</a>
-          <a href="https://todo.vanusha.top">Todo Manager</a>
+          <a href="https://cats.vanusha.top">Котикс</a>
+          <!-- <a href="https://fastcode.vanusha.top">JS Fastcode</a> -->
+          <!-- <a href="https://cq.vanusha.top">Country Quiz</a> -->
+          <a href="https://emoji.vanusha.top">Emoji Madness</a>
         </div>
       </div>
 

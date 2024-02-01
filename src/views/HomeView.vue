@@ -14,7 +14,7 @@
         src="../assets/images/wreath.png" alt=""
       >
 
-      <h1>Ваня Дапстеп</h1>
+      <!-- <h1>Ваня Дапстеп</h1> -->
       <!-- <p class="subtitle">Замути с ним, он хороший &lt;3</p> -->
     </div>
 
@@ -35,7 +35,7 @@
           subtitle="discord" bgColor="#593BE4">
         </social-link-item>
 
-        <social-link-item class="vk" href="https://vk.com/vane4karave" subtitle="vkontakte" bgColor="#0079FF">
+        <social-link-item class="vk" href="https://vk.com/uwu2k" subtitle="vkontakte" bgColor="#0079FF">
           <img srcset="../assets/images/vk.png 3x" alt="">
         </social-link-item>
 
