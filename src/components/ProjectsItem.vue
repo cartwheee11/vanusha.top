@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="wrapper">
-      <a href="#" class="item">
+      <!-- <a href="#" class="item">
         <span class="title">
           Перспективный игровой проект "Feed Alena"
           <span class="soon">скоро!</span>
         </span>
         <span class="link">В разработке</span>
 
-      </a>
+      </a> -->
 
       <a href="https://cats.vanusha.top" class="item">
         <span class="title">Котикс</span><span class="link">https://cats.vanusha.top</span>
