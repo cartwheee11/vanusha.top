@@ -2,15 +2,16 @@
   <!-- <snake-item class="snake" /> -->
   <div class="home" v-if="avatarLoaded">
     <div class="container avatar-section section">
+      <img class="crown" src="../assets/images/crown.png" alt="">
       <img class="left-wing wing"
-        height="180"
+        height="154"
         src="../assets/images/wreath.png" alt=""
       >
 
-      <img ref="avatar" class="avatar" height="180" src="../assets/images/avatar.png" alt="">
+      <img ref="avatar" class="avatar" height="126" src="../assets/images/avatar.png" alt="">
 
       <img class="right-wing wing"
-        height="180"
+        height="154"
         src="../assets/images/wreath.png" alt=""
       >
 
@@ -148,36 +149,40 @@ export default defineComponent({
 
   @keyframes right-wing{
     from {
-      transform: rotate(20deg) scaleX(-1) scale(0.7) translateY(20px);
+      transform: rotate(20deg) scaleX(-1) scale(1) translateY(20px);
       opacity: 0;
     }
 
     50% {
-      transform: rotate(20deg) scaleX(-1) scale(0.7) translateY(20px);
+      transform: rotate(20deg) scaleX(-1) scale(1) translateY(20px);
       opacity: 0;
     }
 
     to {
-      transform: rotate(10deg) scaleX(-1) scale(0.7) translateY(-20px);
+      transform: rotate(10deg) scaleX(-1) scale(1) translateY(-20px);
       opacity: 1;
     }
   }
 
   @keyframes left-wing{
     from {
-      transform: rotate(-20deg) scale(0.7) translateY(20px);
+      transform: rotate(-20deg) scale(1) translateY(20px);
       opacity: 0;
     }
 
     50% {
-      transform: rotate(-20deg) scale(0.7) translateY(20px);
+      transform: rotate(-20deg) scale(1) translateY(20px);
       opacity: 0;
     }
 
     to {
-      transform: rotate(-10deg) scale(0.7) translateY(-20px);
+      transform: rotate(-10deg) scale(1) translateY(-20px);
       opacity: 1;
     }
+  }
+
+  .section {
+    margin-top: 100px;
   }
 
   .wing {
@@ -186,23 +191,30 @@ export default defineComponent({
     transform-origin: bottom;
 
     @media screen and (max-width: 800px) {
-      height: 80px;
+      height: 105px;
     }
   }
 
   .left-wing {
     animation: left-wing 2s;
     animation-fill-mode: forwards;
+    margin-right: -10px;
   }
 
   .right-wing {
     animation: right-wing 2s;
     animation-fill-mode: forwards;
+    margin-left: -10px;
   }
 
   .avatar-section {
     animation: fade-up 2s;
     text-align: center;
+    margin-top: 70px;
+    // transform: scale(0.8);
+    // @media screen and (max-width: 800px) {
+    //   transform: scale(0.5);
+    // }
   }
 
   .avatar {
@@ -210,14 +222,32 @@ export default defineComponent({
     border-spacing: 2px;
     background-color: black;
     border-radius: 100%;
+    vertical-align: top;
+    margin-top: -20px;
 
     @media screen and (max-width: 800px) {
-      height: 100px;
+      height: 90px;
+
     }
   }
 
-  .section {
-    margin-top: 100px;
+  .crown {
+    // position: absolute;
+
+    filter: invert(100%);
+    mix-blend-mode: exclusion;
+    transform-origin: bottom;
+    display: block;
+    margin: 0 auto;
+    // margin-top: -30px;
+    margin-bottom: 30px;
+    height: 40px;
+    animation: fade-up 3s;
+    // margin-bottom: 10px;
+
+    @media screen and (max-width: 800px) {
+      height: 30px;
+    }
   }
 
   .projects-section {
